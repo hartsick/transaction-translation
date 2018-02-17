@@ -1,4 +1,6 @@
 window.onload = function() {
+    'use strict';
+
     var addTooltips = function(path, dataset) {
         var tooltip = d3.select('#chart')
             .append('div')
@@ -83,7 +85,21 @@ window.onload = function() {
         document.getElementById("personality-container").style.visibility = 'visible';
     };
 
-    'use strict';
+    var getQueryParams = function(labels) {
+        var params = (new URL(location)).searchParams;
+
+        var filteredParams = {};
+        labels.forEach(function(label) {
+            var labelKey = labelToKey(label);
+            filteredParams[label] = params.get(labelKey);
+        });
+
+        return filteredParams;
+    };
+
+    var labelToKey = function(label) {
+        return label.toLowerCase().replace(/ +/g, "");
+    };
 
     var colorPalette = {
         "Assertive": "#951826",
@@ -99,8 +115,14 @@ window.onload = function() {
     var labels = Object.keys(colorPalette);
     var colors = labels.map(function(label) { return colorPalette[label]; });
 
+    var params = getQueryParams(labels);
+
     var dataset = labels.map(function(label){
-        return { label: label, count: Math.random() };
+        if (params[label]) {
+            return { label: label, count: params[label] };
+        } else {
+            return { label: label, count: Math.random() };
+        }
     });
 
     var path = createPieChart(dataset, colors);
