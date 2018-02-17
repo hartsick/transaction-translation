@@ -70,14 +70,7 @@ window.onload = function() {
             return 0;
         });
 
-        var total = 0;
-
-        dataset.forEach(function(datum, index) {
-           total += datum.count;
-        });
-
         var personality = sortedDataset[sortedDataset.length - 1];
-        var percent = Math.round((personality.count / total) * 100);
 
         var trait;
         if (personality.label == "Excitement Seeker") {
