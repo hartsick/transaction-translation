@@ -2,6 +2,7 @@ body {
     color: #fff;
     background-color: #000;
     background-image: url("../img/cutcube.png");
+    text-align: center;
 }
 
 header {
@@ -32,6 +33,5 @@ header {
 
 #personality-container {
     visibility: hidden;
-    text-align: center;
 }
 
