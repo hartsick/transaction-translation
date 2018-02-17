@@ -19,7 +19,7 @@ window.onload = function() {
             }));
             var percent = Math.round(1000 * d.data.count / total) / 10;
             tooltip.select('.label').html(d.data.label);
-            tooltip.select('.percent').html(percent + '%');
+            tooltip.select('.percent').html(Math.round(percent) + '%');
             tooltip.style('display', 'block');
         });
 
@@ -70,8 +70,16 @@ window.onload = function() {
             return 0;
         });
 
+        var total = 0;
+
+        dataset.forEach(function(datum, index) {
+           total += datum.count;
+        });
+
         var personality = sortedDataset[sortedDataset.length - 1];
-        document.getElementById("personality").innerText = personality.label;
+        var percent = Math.round((personality.count / total) * 100);
+
+        document.getElementById("personality").innerText = percent + "% " + personality.label;
         document.getElementById("personality-container").style.visibility = 'visible';
     };
 
