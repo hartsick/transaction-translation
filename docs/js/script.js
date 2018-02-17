@@ -59,6 +59,22 @@ window.onload = function() {
             });
     };
 
+    var displayPersonality = function(dataset) {
+        var sortedDataset = dataset.sort(function(a, b) {
+            if (a.count < b.count) {
+                return -1;
+            }
+            if (a.count > b.count) {
+                return 1;
+            }
+            return 0;
+        });
+
+        var personality = sortedDataset[sortedDataset.length - 1];
+        document.getElementById("personality").innerText = personality.label;
+        document.getElementById("personality-container").style.visibility = 'visible';
+    };
+
     'use strict';
 
     var colorPalette = {
@@ -81,4 +97,5 @@ window.onload = function() {
 
     var path = createPieChart(dataset, colors);
     addTooltips(path, dataset);
+    displayPersonality(dataset);
 };
