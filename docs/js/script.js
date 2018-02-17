@@ -79,7 +79,14 @@ window.onload = function() {
         var personality = sortedDataset[sortedDataset.length - 1];
         var percent = Math.round((personality.count / total) * 100);
 
-        document.getElementById("personality").innerText = percent + "% " + personality.label;
+        var trait;
+        if (personality.label == "Excitement Seeker") {
+            trait = "an " + personality.label;
+        } else {
+            trait = personality.label;
+        }
+
+        document.getElementById("personality").innerText = trait.toLowerCase();
         document.getElementById("personality-container").style.visibility = 'visible';
     };
 
