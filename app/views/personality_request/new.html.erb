@@ -1,0 +1,6 @@
+<h2>Upload your pantograph here.</h2>
+
+<%= form_for @personality_profile, url: { action: 'create' } do |f| %>
+  <%= f.file_field(:pantograph, required: 'required') %>
+  <%= f.submit 'Upload' %>
+<% end %>

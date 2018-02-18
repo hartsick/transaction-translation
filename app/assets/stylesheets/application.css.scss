@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    color: #fff;
+    background-color: #000;
+    background-image: image-url('cutcube.png');
+    text-align: center;
+    font-family: sans-serif;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,9 @@
+<div>Your personality profile is ready.</div>
+<div class="main">
+  <p>
+    To view it, head over to
+    <%= link_to(@personality_profile) do %>
+        http://personalization.transactiontranslation.com<%= personality_profile_path(@personality_profile) %>
+    <% end %>
+  </p>
+</div>
