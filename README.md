@@ -16,6 +16,8 @@ rails s
 
 Then, visit the server and upload a photo! You should then see a link to your generated personality profile.
 
+Alter environment variables in the `.env` file.
+
 ## Running the tests
 
 There's minimal testing in this project, but there are full-flow integration specs. Here's the command to get them running:
@@ -23,6 +25,10 @@ There's minimal testing in this project, but there are full-flow integration spe
 ```
 rspec spec
 ```
+
+## Deployment
+
+When deploying, be sure to set the `ROOT_URL` environment variable to your host root URL (e.g. 'https://chartsock.com).
 
 
 ## License

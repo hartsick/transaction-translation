@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'capybara-webkit'
+  gem 'dotenv-rails'
 end
 
 group :development do

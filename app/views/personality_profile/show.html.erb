@@ -10,7 +10,7 @@
         Want to share with someone?<br />
         Send them to
         <%= link_to(@personality_profile, {id: "profile-link"}) do %>
-            http://personalization.transactiontranslation.com<%= personality_profile_path(@personality_profile) %>
+            <%= ENV["ROOT_URL"] + personality_profile_path(@personality_profile) %>
         <% end %>
     </div>
 
