@@ -5,6 +5,21 @@
     <div id="chart" class="chart"></div>
 </div>
 
+<div class="details">
+    <div class="form-group">
+        Want to share with someone? Send them to<br />
+        <%= link_to(@personality_profile, {id: "profile-link"}) do %>
+            http://personalization.transactiontranslation.com<%= personality_profile_path(@personality_profile) %>
+        <% end %>
+    </div>
+
+    <div class="form-group">
+        Don't like what you see?
+
+      <%= link_to("Try again", root_path) %>
+    </div>
+</div>
+
 <script>
     window.onload = function() {
         'use strict';
