@@ -27,6 +27,21 @@ a {
     font-weight: bold;
 }
 
+.legend {
+    font-size: 14px;
+    text {
+        fill: white;
+    }
+}
+
+rect {
+    stroke-width: 2;
+}
+
+.chart {
+    padding-top: 1em;
+}
+
 .form-group {
     padding: 1em;
 

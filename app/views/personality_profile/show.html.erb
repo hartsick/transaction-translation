@@ -9,6 +9,35 @@
     window.onload = function() {
         'use strict';
 
+        var addLegend = function(svg, color) {
+            var legendRectSize = 15;
+            var legendSpacing = 6;
+
+            var legend = svg.selectAll('.legend')
+                .data(color.domain())
+                .enter()
+                .append('g')
+                .attr('class', 'legend')
+                .attr('transform', function(d, i) {
+                    var height = legendRectSize + legendSpacing;
+                    var offset =  height * color.domain().length / 2;
+                    var horz = -2 * (legendRectSize + 14);
+                    var vert = i * height - offset;
+                    return 'translate(' + horz + ',' + vert + ')';
+                });
+
+            legend.append('rect')
+                .attr('width', legendRectSize)
+                .attr('height', legendRectSize)
+                .style('fill', color)
+                .style('stroke', color);
+
+            legend.append('text')
+                .attr('x', legendRectSize + legendSpacing)
+                .attr('y', legendRectSize - legendSpacing)
+                .text(function(d) { return d; });
+        };
+
         var addTooltips = function(path, dataset) {
             var tooltip = d3.select('#chart')
                 .append('div')
@@ -42,6 +71,7 @@
             var width = 360;
             var height = 360;
             var radius = Math.min(width, height) / 2;
+            var donutWidth = 60;
             var color = d3.scaleOrdinal().range(colors);
 
             var svg = d3.select('#chart')
@@ -52,14 +82,14 @@
                 .attr('transform', 'translate(' + (width / 2) +  ',' + (height / 2) + ')');
 
             var arc = d3.arc()
-                .innerRadius(0)
+                .innerRadius(radius - donutWidth)
                 .outerRadius(radius);
 
             var pie = d3.pie()
                 .value(function(d) { return d.count; })
                 .sort(null);
 
-            return svg.selectAll('path')
+            var path = svg.selectAll('path')
                 .data(pie(dataset))
                 .enter()
                 .append('path')
@@ -67,6 +97,12 @@
                 .attr('fill', function(d, i) {
                     return color(d.data.label);
                 });
+
+            return {
+                color: color,
+                path: path,
+                svg: svg,
+            };
         };
 
         var displayPersonality = function(dataset) {
@@ -113,8 +149,9 @@
             <% end %>
         ];
 
-        var path = createPieChart(dataset, colors);
-        addTooltips(path, dataset);
+        var details = createPieChart(dataset, colors);
+//        addTooltips(details.path, dataset);
+        addLegend(details.svg, details.color);
         displayPersonality(dataset);
     };
 </script>
