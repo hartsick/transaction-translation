@@ -20,6 +20,7 @@ body {
     background-image: image-url('cutcube.png');
     text-align: center;
     font-family: sans-serif;
+    max-width: 100%;
 }
 
 a {
@@ -28,7 +29,7 @@ a {
 }
 
 .legend {
-    font-size: 14px;
+    font-size: 12px;
     text {
         fill: white;
     }
@@ -40,6 +41,7 @@ rect {
 
 .chart {
     padding-top: 1em;
+    max-width: 100%;
 }
 
 .form-group {

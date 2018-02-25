@@ -6,18 +6,14 @@
 }
 
 .tooltip {
-    background: #eee;
-    box-shadow: 0 0 5px #999999;
-    color: #333;
+    color: white;
     display: none;
-    font-size: 12px;
-    left: 130px;
+    font-size: 20px;
     padding: 10px;
-    position: absolute;
     text-align: center;
-    top: 95px;
-    width: 80px;
+    top: 360px;
     z-index: 10;
+    margin: 0 auto;
 }
 
 #personality-container {
