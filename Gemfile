@@ -20,6 +20,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'capybara-webkit'
 end
 
 group :development do

@@ -11,6 +11,10 @@ describe 'generating a personality profile', :type => :feature do
     click_on 'Upload'
 
     expect(page).to have_content('Your personality profile is ready.')
+
+    click_on 'profile-link'
+
+    expect(page).to have_content('You are')
   end
 end
 
@@ -32,7 +36,5 @@ describe 'revisiting a personality profile', :type => :feature  do
     visit personality_profile_path(slug: 'anniedog')
 
     expect(page).to have_content('You are an excitement seeker.')
-    expect(page).to have_content('To view it, head over to')
-    expect(page).to have_content('/anniedog')
   end
 end
