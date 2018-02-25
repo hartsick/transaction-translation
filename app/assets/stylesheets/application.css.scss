@@ -26,22 +26,7 @@ body {
 a {
     color: white;
     font-weight: bold;
-}
-
-.legend {
-    font-size: 12px;
-    text {
-        fill: white;
-    }
-}
-
-rect {
-    stroke-width: 2;
-}
-
-.chart {
-    padding-top: 1em;
-    max-width: 100%;
+    font-size: 1.2em;
 }
 
 .form-group {
