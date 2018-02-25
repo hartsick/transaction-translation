@@ -56,8 +56,8 @@ a {
         border: 1px solid transparent;
         border-radius: 4px;
         color: #fff;
-        background-color: #428bca;
-        border-color: #357ebd;
+        background-color: #05636b;
+        border-color: #053D45;
     }
 
     .btn-primary:focus,
@@ -66,13 +66,13 @@ a {
         outline: 5px auto -webkit-focus-ring-color;
         outline-offset: -2px;
         color: #fff;
-        background-color: #3276b1;
-        border-color: #285e8e;
+        background-color: #053D45;
+        border-color: #053D45;
     }
 
     .btn-primary:hover,
     .btn-primary:active {
-        color: #333;
+        background-color: #054D54;
         text-decoration: none;
 
     }

@@ -5,5 +5,11 @@
     <%= link_to(@personality_profile, {id: "profile-link"}) do %>
         http://personalization.transactiontranslation.com<%= personality_profile_path(@personality_profile) %>
     <% end %>
+
+    <div class="form-group">
+      <%= link_to(@personality_profile) do %>
+        <button class="btn btn-primary">View my profile -></button>
+      <% end %>
+    </div>
   </p>
 </div>
