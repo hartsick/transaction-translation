@@ -10,14 +10,10 @@ class PersonalityRequestController < ApplicationController
 
     if profile.valid?
       profile.save
-      redirect_to personality_request_path(profile)
+      redirect_to personality_profile_path(profile)
     else
       render :new
     end
-  end
-
-  def show
-    @personality_profile = PersonalityProfile.find_by_slug(params[:slug])
   end
 
   private

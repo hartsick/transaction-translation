@@ -10,11 +10,8 @@ describe 'generating a personality profile', :type => :feature do
 
     click_on 'Upload'
 
-    expect(page).to have_content('Your personality profile is ready.')
-
-    click_on 'profile-link'
-
     expect(page).to have_content('You are')
+    expect(page).to have_content('Want to share with someone?')
   end
 end
 
